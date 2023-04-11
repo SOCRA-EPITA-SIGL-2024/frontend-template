@@ -1,9 +1,9 @@
 import React from "react";
 import { createBrowserRouter, Outlet, useNavigate } from "react-router-dom";
 import Product from "./Product";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
-import NavItem from "./NavItem";
+import ProductList from "./ProductList";
+import Banner from "./Banner";
+import MainMenu from "./MainMenu";
 
 export const router = createBrowserRouter([
   {
@@ -17,23 +17,31 @@ export const router = createBrowserRouter([
         children: [
           {
             path: "/product/vegetable",
-            element: <h1>Fruits et légumes</h1>,
+            element: (
+              <ProductList categoryId="vegetable">
+                Fruits et légumes
+              </ProductList>
+            ),
           },
           {
             path: "/product/chicken",
-            element: <h1>Volailles</h1>,
+            element: <ProductList categoryId="chicken">Volailles</ProductList>,
           },
           {
             path: "/product/red-meat",
-            element: <h1>Viande rouge</h1>,
+            element: (
+              <ProductList categoryId="red-meat">Viande rouge</ProductList>
+            ),
           },
           {
             path: "/product/drink",
-            element: <h1>Boissons</h1>,
+            element: <ProductList categoryId="drink">Boissons</ProductList>,
           },
           {
             path: "/product/wine",
-            element: <h1>Vin & spiritueux</h1>,
+            element: (
+              <ProductList categoryId="wine">Vin & spiritueux</ProductList>
+            ),
           },
         ],
       },
@@ -56,32 +64,8 @@ function Layout() {
   }, []);
   return (
     <div className="App">
-      <nav className="menu-horizontal">
-        <ul>
-          <li>
-            <NavItem to="/product">Produits</NavItem>
-          </li>
-          <li>
-            <NavItem to="/command">Commandes</NavItem>
-          </li>
-          <li>
-            <NavItem to="/basket">
-              <FontAwesomeIcon icon={faShoppingCart} />
-            </NavItem>
-          </li>
-        </ul>
-      </nav>
-      <div className="banner">
-        <span></span>
-        <h1 className="banner-head">
-          Des produits frais
-          <br />
-          <u>
-            <b>de votre voisinage</b>
-          </u>
-        </h1>
-        <span></span>
-      </div>
+      <MainMenu />
+      <Banner />
       <Outlet />
     </div>
   );
