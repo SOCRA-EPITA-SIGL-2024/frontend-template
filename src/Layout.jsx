@@ -4,6 +4,7 @@ import Product from "./Product";
 import ProductList from "./ProductList";
 import Banner from "./Banner";
 import MainMenu from "./MainMenu";
+import Basket from "./Basket";
 
 export const router = createBrowserRouter([
   {
@@ -51,7 +52,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/basket",
-        element: <h1>Basket</h1>,
+        element: <Basket />,
       },
     ],
   },

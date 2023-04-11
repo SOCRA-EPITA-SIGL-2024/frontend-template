@@ -1,4 +1,9 @@
+import React from "react";
+import useAppContext from "./AppContext";
+
 function ProductCard({ imageSrc, title, price, discount }) {
+  const { dispatch } = useAppContext();
+  const [alreadyAdded, setAlreadyAdded] = React.useState(false);
   return (
     <div className="card">
       <div className="card-header">
@@ -18,8 +23,18 @@ function ProductCard({ imageSrc, title, price, discount }) {
         </span>
       </div>
       <div className="card-actions">
-        <button>
-          <i className="fa fa-shopping-cart"></i> Ajouter au panier
+        <button
+          disabled={alreadyAdded}
+          onClick={() => {
+            dispatch({
+              type: "NEW_BASKET_ITEM",
+              item: { title, price: price - discount },
+            });
+            setAlreadyAdded(true);
+          }}
+        >
+          <i className="fa fa-shopping-cart"></i>{" "}
+          {alreadyAdded ? "Déjà ajouté au panier" : "Ajouter au panier"}
         </button>
       </div>
     </div>
