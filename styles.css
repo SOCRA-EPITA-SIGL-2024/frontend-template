@@ -59,7 +59,7 @@ nav a > i {
 }
 
 .banner {
-  background-color: #F4D1B1;
+  background-color: #f4d1b1;
   height: 200px;
   margin-bottom: 3em;
   display: grid;
@@ -128,7 +128,8 @@ nav a > i {
   cursor: pointer;
 }
 
-.card-template, .short-card-template {
+.card-template,
+.short-card-template {
   margin: 5px;
   border: 5px solid grey;
   background-color: whitesmoke;
@@ -156,7 +157,6 @@ nav a > i {
   .banner {
     display: none;
   }
-
 }
 
 @media (max-width: 768px) {
@@ -174,13 +174,15 @@ nav a > i {
     display: flex;
     flex-direction: column;
   }
-  .vegetables, .deals {
+  .vegetables,
+  .deals {
     grid-template-columns: 1fr 1fr;
   }
 }
 
 @media (max-width: 460px) {
-  .vegetables, .deals {
+  .vegetables,
+  .deals {
     display: flex;
     flex-direction: column;
   }
