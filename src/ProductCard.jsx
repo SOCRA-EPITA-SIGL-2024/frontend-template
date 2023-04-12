@@ -2,8 +2,13 @@ import React from "react";
 import useAppContext from "./AppContext";
 
 function ProductCard({ imageSrc, title, price, discount }) {
-  const { dispatch } = useAppContext();
-  const [alreadyAdded, setAlreadyAdded] = React.useState(false);
+  const {
+    state: { basket },
+    dispatch,
+  } = useAppContext();
+  const [alreadyAdded, setAlreadyAdded] = React.useState(
+    !!basket.find((item) => item.title === title)
+  );
   return (
     <div className="card">
       <div className="card-header">
