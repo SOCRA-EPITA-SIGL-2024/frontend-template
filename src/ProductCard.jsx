@@ -6,9 +6,9 @@ function ProductCard({ imageSrc, title, price, discount }) {
     state: { basket },
     dispatch,
   } = useAppContext();
-  const [alreadyAdded, setAlreadyAdded] = React.useState(
-    !!basket.find((item) => item.title === title)
-  );
+
+  const alreadyAdded = !!basket.find((item) => item.title === title);
+
   return (
     <div className="card">
       <div className="card-header">
@@ -30,12 +30,11 @@ function ProductCard({ imageSrc, title, price, discount }) {
       <div className="card-actions">
         <button
           disabled={alreadyAdded}
-          onClick={() => {
+          onClick={function () {
             dispatch({
               type: "NEW_BASKET_ITEM",
               item: { title, price: price - discount },
             });
-            setAlreadyAdded(true);
           }}
         >
           <i className="fa fa-shopping-cart"></i>{" "}

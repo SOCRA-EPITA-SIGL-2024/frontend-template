@@ -1,10 +1,10 @@
 import React from "react";
-import { createBrowserRouter, Outlet, useNavigate } from "react-router-dom";
+import { createBrowserRouter, Outlet } from "react-router-dom";
+import Banner from "./Banner";
+import Basket from "./Basket";
+import MainMenu from "./MainMenu";
 import Product from "./Product";
 import ProductList from "./ProductList";
-import Banner from "./Banner";
-import MainMenu from "./MainMenu";
-import Basket from "./Basket";
 
 export const router = createBrowserRouter([
   {
@@ -59,10 +59,6 @@ export const router = createBrowserRouter([
 ]);
 
 function Layout() {
-  const navigate = useNavigate();
-  React.useEffect(() => {
-    navigate("/product");
-  }, []);
   return (
     <div className="App">
       <MainMenu />
