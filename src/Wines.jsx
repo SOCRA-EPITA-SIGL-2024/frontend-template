@@ -4,7 +4,7 @@ import imgWineGlass from "./images/wine.jpg";
 import { getWinesFromGarden } from "./helpers";
 
 function EmptyDrink() {
-  return <span>Aucune viande rouge disponible dans un rayon de 15 km</span>;
+  return <span>Aucun vin disponible dans un rayon de 15 km</span>;
 }
 
 function Wines() {

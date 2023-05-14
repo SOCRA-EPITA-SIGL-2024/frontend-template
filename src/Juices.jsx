@@ -4,7 +4,7 @@ import imgJuices from "./images/juice.jpg";
 import { getJuiceFromGarden } from "./helpers";
 
 function EmptyJuices() {
-  return <span>Aucune viande rouge disponible dans un rayon de 15 km</span>;
+  return <span>Aucune boisson disponible dans un rayon de 15 km</span>;
 }
 
 function Juices() {
