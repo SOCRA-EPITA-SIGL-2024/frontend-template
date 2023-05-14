@@ -1,29 +1,37 @@
 import React from "react";
 import useAppContext from "./AppContext";
 
-function ProductCard({ imageSrc, title, price, discount }) {
+function ProductCard({
+  imageSrc,
+  productName,
+  price,
+  gardenTitle,
+  distance,
+  id,
+}) {
   const {
     state: { basket },
     dispatch,
   } = useAppContext();
 
-  const alreadyAdded = !!basket.find((item) => item.title === title);
+  const alreadyAdded = !!basket.find((item) => item.id === id);
 
   return (
     <div className="card">
       <div className="card-header">
-        <img src={imageSrc} alt={title} />
+        <img src={imageSrc} alt={productName} />
       </div>
 
       <div className="card-content">
-        <h4>{title}</h4>
+        <h4>{productName}</h4>
+        <p>
+          Vendu par {gardenTitle} à {distance} km
+        </p>
       </div>
       <div className="card-footer">
         <span>
           <i>
-            <s>{price}</s>
-            <span className="discount"> {price - discount}</span> (- {discount})
-            € / kg
+            <span className="price">{price}</span> € / kg
           </i>
         </span>
       </div>
@@ -34,7 +42,7 @@ function ProductCard({ imageSrc, title, price, discount }) {
           onClick={function () {
             dispatch({
               type: "NEW_BASKET_ITEM",
-              item: { title, price: price - discount },
+              item: { id, price },
             });
           }}
         >
