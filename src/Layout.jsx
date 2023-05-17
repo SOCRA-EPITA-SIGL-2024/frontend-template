@@ -2,9 +2,14 @@ import React from "react";
 import { createBrowserRouter, Outlet } from "react-router-dom";
 import Banner from "./Banner";
 import Basket from "./Basket";
+import Chickens from "./Chickens";
+import Wines from "./Wines";
 import MainMenu from "./MainMenu";
 import Product from "./Product";
 import ProductList from "./ProductList";
+import RedMeatList from "./RedMeatList";
+import Vegetables from "./Vegetables";
+import Juices from "./Juices";
 
 export const router = createBrowserRouter([
   {
@@ -18,31 +23,23 @@ export const router = createBrowserRouter([
         children: [
           {
             path: "/product/vegetable",
-            element: (
-              <ProductList categoryId="vegetable">
-                Fruits et légumes
-              </ProductList>
-            ),
+            element: <Vegetables />,
           },
           {
             path: "/product/chicken",
-            element: <ProductList categoryId="chicken">Volailles</ProductList>,
+            element: <Chickens />,
           },
           {
             path: "/product/red-meat",
-            element: (
-              <ProductList categoryId="red-meat">Viande rouge</ProductList>
-            ),
+            element: <RedMeatList />,
           },
           {
             path: "/product/drink",
-            element: <ProductList categoryId="drink">Boissons</ProductList>,
+            element: <Juices />,
           },
           {
             path: "/product/wine",
-            element: (
-              <ProductList categoryId="wine">Vin & spiritueux</ProductList>
-            ),
+            element: <Wines />,
           },
         ],
       },

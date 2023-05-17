@@ -30,7 +30,7 @@ function ProductList({ categoryId, children }) {
   return (
     <>
       <h4>{children}</h4>
-      <div className="vegetables">{data}</div>
+      <div className="product-items">{data}</div>
     </>
   );
 }

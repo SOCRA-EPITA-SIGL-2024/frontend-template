@@ -2,6 +2,7 @@ import React from "react";
 
 export const initialState = {
   basket: [],
+  gardens: [],
 };
 
 export const reducer = (state, action) => {
@@ -16,12 +17,14 @@ export const reducer = (state, action) => {
       const { item: toRemove } = action;
       return {
         ...state,
-        basket: state.basket.filter(
-          (item) =>
-            item.title !== toRemove.title && item.price !== toRemove.price
-        ),
+        basket: state.basket.filter((item) => item.id !== toRemove.id),
       };
-
+    case "GARDENS_LOADED":
+      const { gardens } = action;
+      return {
+        ...state,
+        gardens,
+      };
     default:
       return state;
   }
